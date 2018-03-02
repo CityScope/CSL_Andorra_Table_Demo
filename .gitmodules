@@ -1,0 +1,3 @@
+[submodule "CS_Simulation_GAMA"]
+	path = CS_Simulation_GAMA
+	url = https://github.com/CityScope/CS_Simulation_GAMA
