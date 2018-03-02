@@ -1,0 +1,31 @@
+,RS Housing (Microunits),,,RM Housing (Average),,,RL Housing (Luxury),,,,,S Office (Microunits),,,M Office  (Average),,,L Office (Luxury),,,Parks,,,Roads,
+Indicators,Statistics,Weight Per statistic,,Statistics,Weight Per statistic,,Statistics,Weight Per statistic,,,,Statistics,Weight Per statistic,,Statistics,Weight Per statistic,,Statistics,Weight Per statistic,,Statistics,Weight Per statistic,,Statistics,Weight Per statistic
+Density,Residential,3,,Residentia,1.9,,Residentia,1.3,,,,Residentia,0,,Residentia,0,,Residentia,0,,Residentia,0,,Residentia,0
+,Employment,0,,Employment,0,,Employment,0,,,,Employment,3,,Employment,1.9,,Employment,1.3,,Employment,0,,Employment,0
+,3rd places (day),1.01,,3rd places (day),1.5,,3rd places (day),0.95,,,,3rd places (day),0.7,,3rd places (day),1.1,,3rd places (day),0.9,,3rd places (day),0.7,,3rd places (day),0
+,3rd places (Night),1.65,,3rd places (Night),0.5,,3rd places (Night),1.5,,,,3rd places (Night),1.1,,3rd places (Night),0.18,,3rd places (Night),0.8,,3rd places (Night),-0.2,,3rd places (Night),0
+,Cultural,1.01,,Cultural,0.5,,Cultural,2,,,,Cultural,0.9,,Cultural,0.7,,Cultural,0,,Cultural,0.5,,Cultural,0
+,Co-working,0,,Co-working,0,,Co-working,0,,,,Co-working,3,,Co-working,0,,Co-working,0,,Co-working,0,,Co-working,0
+,Educational,1.07,,Educational,1.02,,Educational,0.6,,,,Educational,1.05,,Educational,0.88,,Educational,0.01,,Educational,0,,Educational,0
+,,,,,,,,,,,,,,,,,,,,,,,,,
+Energy,Building Energy Efficiency,2,,Building Energy Efficiency (Consumption),1.2,,Building Energy Efficiency (Consumption),-0.7,,,,Building Energy Efficiency (Consumption),1.05,,Building Energy Efficiency (Consumption),0.5,,Building Energy Efficiency (Consumption),-0.9,,Building Energy Efficiency (Consumption),1.01,,Building Energy Efficiency (Consumption),0
+,Embodied Building Energy,1.5,,Embodied Building Energy,1.15,,Embodied Building Energy,-0.5,,,,Embodied Building Energy,0.96,,Embodied Building Energy,-0.5,,Embodied Building Energy,-0.5,,Embodied Building Energy,0,,Embodied Building Energy,0
+,Mobility Energy Efficiency,2,,Mobility Energy Efficiency (Consumption),1.05,,Mobility Energy Efficiency (Consumption),-0.75,,,,Mobility Energy Efficiency (Consumption),1.02,,Mobility Energy Efficiency (Consumption),0.85,,Mobility Energy Efficiency (Consumption),-0.7,,Mobility Energy Efficiency (Consumption),0,,Mobility Energy Efficiency (Consumption),-2
+,Embodied Mobility Energy,1.3,,Embodied Mobility Energy,1.15,,Embodied Mobility Energy,-0.4,,,,Embodied Mobility Energy,0.9,,Embodied Mobility Energy,-0.5,,Embodied Mobility Energy,-0.75,,Embodied Mobility Energy,0,,Embodied Mobility Energy,-1.15
+,,,,,,,,,,,,,,,,,,,,,,,,,
+Proximity,Access to Parks,0.7,,Access to Parks,0.9,,Access to Parks,0,,,,Access to Parks,0.1,,Access to Parks,0,,Access to Parks,0,,Access to Parks,2,,Access to Parks,0.7
+,Access to public Transport,1.5,,Access to public Transport,1.3,,Access to public Transport,0,,,,Access to public Transport,1.15,,Access to public Transport,1.03,,Access to public Transport,0,,Access to public Transport,0.12,,Access to public Transport,1.2
+,Intersection Density,1.02,,Intersection Density,1.5,,Intersection Density,0,,,,Intersection Density,1.1,,Intersection Density,1.13,,Intersection Density,0,,Intersection Density,-0.5,,Intersection Density,1.4
+,Access to Lookout,0,,Access to look-out (Police),1.25,,Access to look-out (Police),2,,,,Access to look-out (Police),0.5,,Access to look-out (Police),1.1,,Access to look-out (Police),1.02,,Access to look-out (Police),-0.2,,Access to look-out (Police),1.02
+,Access to Healthy food,0,,Access to Healthy food,1.6,,Access to Healthy food,2,,,,Access to Healthy food,0,,Access to Healthy food,0.95,,Access to Healthy food,1.1,,Access to Healthy food,0,,Access to Healthy food,1.5
+,Access to Sports,1.5,,Access to Sports (Leisure and wellness),1.01,,Access to Sports (Leisure and wellness),1.7,,,,Access to Sports (Leisure and wellness),0.5,,Access to Sports (Leisure and wellness),0.75,,Access to Sports (Leisure and wellness),1.1,,Access to Sports (Leisure and wellness),1.01,,Access to Sports (Leisure and wellness),1.1
+,Access to Healthcare ,0.6,,Access to Healthcare ,2,,Access to Healthcare ,1.2,,,,Access to Healthcare ,0.35,,Access to Healthcare ,1.1,,Access to Healthcare ,1.1,,Access to Healthcare ,0,,Access to Healthcare ,1.1
+,,,,,,,,,,,,,,,,,,,,,,,,,
+Diversity,Residential,3,,Residential,1.1,,Residential,1.01,,,,Residential,0,,Residential,0,,Residential,0,,Residential,0.5,,Residential,0
+,Employment,0,,Employment,0,,Employment,0,,,,Employment,2.2,,Employment,1.05,,Employment,1.08,,Employment,0,,Employment,0
+,Residential/Employment,1.5,,Residential/Employment (Ratio),1.25,,Residential/Employment (Ratio),0.68,,,,Residential/Employment (Ratio),1.05,,Residential/Employment (Ratio),0.7,,Residential/Employment (Ratio),0.8,,Residential/Employment (Ratio),0,,Residential/Employment (Ratio),0
+,3rd Places,0.95,,3rd Places,1.5,,3rd Places,1.2,,,,3rd Places,1.2,,3rd Places,0.6,,3rd Places,0.9,,3rd Places,0.1,,3rd Places,0
+,Cultural,1.5,,Cultural,1.01,,Cultural,1.78,,,,Cultural,1.01,,Cultural,0.9,,Cultural,0,,Cultural,0.1,,Cultural,0
+,Educational,1.7,,Educational,2,,Educational,1.01,,,,Educational,1.05,,Educational,1.01,,Educational,0,,Educational,0.1,,Educational,0
+,,,1.5,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,1,,,,,,,,,

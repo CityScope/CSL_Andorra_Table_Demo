@@ -1,0 +1,16 @@
+ Option Explicit
+'Script written by <Jung In Seo>
+'Script copyrighted by <MIT Media Lab Changing Places>
+'Script version Friday, 07 July 2017 14:11:16
+
+Call Main()
+Sub Main()
+	Dim GH
+	Set GH = Rhino.GetPlugInObject("Grasshopper")
+	Call GH.DisableBanner()
+	Call GH.ShowEditor()
+	'Call GH.DisableSolver()
+	Call GH.OpenDocument("C:\Users\CPG_Andorra\Documents\GitHub\Andorra\Grasshopper\Gh\WIP_170822_CityScope_Andorra.gh")
+	'Call Rhino.Sleep(10000)
+	'Call GH.EnableSolver()
+End Sub
