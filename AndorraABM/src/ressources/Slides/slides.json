@@ -1,0 +1,218 @@
+[
+    {"id": 1,
+     "Display": {
+         "table_background_picture": "Background/earth.png",
+         "duration": "10",
+         "road": false,
+         "poi": true,
+         "legend": " Tour de France\n Cirque du Soleil",
+         "date": "10/07/2016",
+         "tdf":true
+     },
+     "POI":[
+     {"file": "GIS/POI/top_tdf.tsv","type": "TopSpots_tdf","AgentType": "PERSON"},
+     {"file": "GIS/POI/top_8.tsv","type": "TopSpots","AgentType": "PERSON"},
+     {"file": "GIS/POI/parkings_tdf.tsv","type": "Parking_tdf","AgentType": "CAR_RESIDENTIAL"},   
+     ],
+     "CDR": {
+         "center": "Mobility/CDR/2016TourdeFrance/synthetic20160710center.json",
+         "center_od": "Mobility/CDR/2016TourdeFrance/synthetic20160710centerod.json",
+         "cities": "Mobility/CDR/2016TourdeFrance/synthetic20160710cities.json",
+         "cities_od": "Mobility/CDR/2016TourdeFrance/synthetic20160710citiesod.json",
+     },
+     "RNC": {
+         "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_10.json",
+     },
+     "TrafficNetwork": {
+         "file": "Mobility/Equilibrium/linksCong2016_07_10.json",
+     },
+     "Agent":[
+         {"number":"750", "Type":"PERSON", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"750", "Type":"PERSON", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"250", "Type":"PERSON", "Nationality":"BELGIUM", "Color":"FFAAAAAA"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"FRENCH", "Color":"FFAAAAAA"},
+    ]    
+    },
+    {"id": 2,
+     "Display": {
+         "table_background_picture": "Background/earth.png",
+         "duration": "10",
+         "road": false,
+         "poi": true,
+         "legend": "Tour de France",
+         "date": "07/11/2016",
+         "tdf":true
+     },
+     "POI":[
+     {"file": "GIS/POI/top_tdf.tsv","type": "TopSpots_tdf","AgentType": "PERSON"},
+     {"file": "GIS/POI/top_8.tsv","type": "TopSpots","AgentType": "PERSON"},
+     {"file": "GIS/POI/parkings_tdf.tsv","type": "Parking_tdf","AgentType": "CAR_RESIDENTIAL"},   
+     ],
+     "CDR": {
+         "center": "Mobility/CDR/2016TourdeFrance/synthetic20160711center.json",
+         "center_od": "Mobility/CDR/2016TourdeFrance/synthetic20160711centerod.json",
+         "cities": "Mobility/CDR/2016TourdeFrance/synthetic20160711cities.json",
+         "cities_od": "Mobility/CDR/2016TourdeFrance/synthetic20160711citiesod.json",
+     },
+     "RNC": {
+         "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_11.json",
+     },
+     "TrafficNetwork": {
+         "file": "Mobility/Equilibrium/linksCong2016_07_11.json",
+     },
+     "Agent":[
+         {"number":"750", "Type":"PERSON", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"750", "Type":"PERSON", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"250", "Type":"PERSON", "Nationality":"BELGIUM", "Color":"FFAAAAAA"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"FRENCH", "Color":"FFAAAAAA"},
+    ]    
+    },
+    {"id": 3,
+     "Display": {
+         "table_background_picture": "Background/earth.png",
+         "duration": "10",
+         "road": false,
+         "poi": true,
+         "legend": "Tour de France",
+         "date": "07/12/2016",
+         "tdf":true
+     },
+     "POI":[
+     {"file": "GIS/POI/top_tdf.tsv","type": "TopSpots_tdf","AgentType": "PERSON"},
+     {"file": "GIS/POI/top_8.tsv","type": "TopSpots","AgentType": "PERSON"},
+     {"file": "GIS/POI/parkings_tdf.tsv","type": "Parking_tdf","AgentType": "CAR_RESIDENTIAL"},   
+     ],
+     "CDR": {
+         "center": "Mobility/CDR/2016TourdeFrance/synthetic20160712center.json",
+         "center_od": "Mobility/CDR/2016TourdeFrance/synthetic20160712centerod.json",
+         "cities": "Mobility/CDR/2016TourdeFrance/synthetic20160712cities.json",
+         "cities_od": "Mobility/CDR/2016TourdeFrance/synthetic20160712citiesod.json",
+     },
+     "RNC": {
+         "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_12.json",
+     },
+     "TrafficNetwork": {
+         "file": "Mobility/Equilibrium/linksCong2016_07_12.json",
+     },
+     "Agent":[
+         {"number":"750", "Type":"PERSON", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"750", "Type":"PERSON", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"250", "Type":"PERSON", "Nationality":"BELGIUM", "Color":"FFAAAAAA"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"50", "Type":"CAR_RESIDENTIAL", "Nationality":"FRENCH", "Color":"FFAAAAAA"},
+    ]    
+    },
+    {"id": 4,
+     "Display": {
+         "table_background_picture": "Background/earth.png",
+         "duration": "10",
+         "road": false,
+         "poi": true,
+         "legend": "Normal day",
+         "date": "07/03/2016",
+         "tdf":false
+     },
+     "POI":[
+     {"file": "GIS/POI/top_8.tsv","type": "TopSpots","AgentType": "PERSON"},
+     {"file": "GIS/POI/cirque.tsv","type": "TopSpots","AgentType": "PERSON"},
+     {"file": "GIS/POI/restaurants.tsv","type": "Restaurants","AgentType": "PERSON"}, 
+     {"file": "GIS/POI/parkings.tsv","type": "Parking","AgentType": "CAR"},   
+     ],
+      "CDR": {
+         "center": "Mobility/CDR/2016CirqueduSoleil/synthetic20160703center.json",
+         "center_od": "Mobility/CDR/CDR/2016CirqueduSoleil/synthetic20160703centerod.json",
+         "cities": "Mobility/CDR/2016CirqueduSoleil/synthetic20160703cities.json",
+         "cities_od": "Mobility/CDR/2016CirqueduSoleil/synthetic20160703citiesod.json",
+     },
+     "RNC": {
+         "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_03.json",
+     },
+     "TrafficNetwork": {
+         "file": "Mobility/Equilibrium/linksCong2016_07_03.json",
+     },
+     "Agent":[
+        {"number":"500", "Type":"PERSON", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"500", "Type":"PERSON", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"250", "Type":"PERSON", "Nationality":"BELGIUM", "Color":"FFAAAAAA"},
+         {"number":"50", "Type":"CAR", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"50", "Type":"CAR", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"25", "Type":"CAR", "Nationality":"FRENCH", "Color":"FFAAAAAA"},
+    ]    
+    },
+     {"id": 5,
+     "Display": {
+         "table_background_picture": "Background/earth.png",
+         "duration": "10",
+         "road": false,
+         "poi": true,
+         "legend": "Cirque du soleil",
+         "date": "07/16/2016",
+         "tdf":false
+     },
+     "POI":[
+     {"file": "GIS/POI/cirque.tsv","type": "TopSpots","AgentType": "PERSON"},
+     {"file": "GIS/POI/parkings.tsv","type": "Parking","AgentType": "CAR"},   
+     ],
+      "CDR": {
+         "center": "Mobility/CDR/2016CirqueduSoleil/synthetic20160716center.json",
+         "center_od": "Mobility/CDR/CDR/2016CirqueduSoleil/synthetic20160716centerod.json",
+         "cities": "Mobility/CDR/2016CirqueduSoleil/synthetic20160716cities.json",
+         "cities_od": "Mobility/CDR/2016CirqueduSoleil/synthetic20160716citiesod.json",
+     },
+     "RNC": {
+         "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_16.json",
+     },
+     "TrafficNetwork": {
+         "file": "Mobility/Equilibrium/linksCong2016_07_16.json",
+     },
+     "Agent":[
+        {"number":"500", "Type":"PERSON", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"500", "Type":"PERSON", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"250", "Type":"PERSON", "Nationality":"BELGIUM", "Color":"FFAAAAAA"},
+         {"number":"50", "Type":"CAR", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"50", "Type":"CAR", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"25", "Type":"CAR", "Nationality":"FRENCH", "Color":"FFAAAAAA"},
+    ]    
+    },
+     {"id": 6,
+     "Display": {
+         "table_background_picture": "Background/earth.png",
+         "duration": "10",
+         "road": false,
+         "poi": true,
+         "animation":"",
+         "legend": "Cirque du soleil",
+         "date": "07/23/2016",
+         "tdf":false
+     },
+     "POI":[
+     {"file": "GIS/POI/cirque.tsv","type": "TopSpots","AgentType": "PERSON"},
+     {"file": "GIS/POI/parkings.tsv","type": "Parking","AgentType": "CAR"},   
+     ],
+      "CDR": {
+         "center": "Mobility/CDR/2016CirqueduSoleil/synthetic20160723center.json",
+         "center_od": "Mobility/CDR/CDR/2016CirqueduSoleil/synthetic20160723centerod.json",
+         "cities": "Mobility/CDR/2016CirqueduSoleil/synthetic20160723cities.json",
+         "cities_od": "Mobility/CDR/2016CirqueduSoleil/synthetic20160723citiesod.json",
+     },
+     "RNC": {
+         "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_23.json",
+     },
+     "TrafficNetwork": {
+         "file": "Mobility/Equilibrium/linksCong2016_07_23.json",
+     },
+     "Agent":[
+        {"number":"500", "Type":"PERSON", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"500", "Type":"PERSON", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"250", "Type":"PERSON", "Nationality":"BELGIUM", "Color":"FFAAAAAA"},
+         {"number":"50", "Type":"CAR", "Nationality":"SPANISH", "Color":"FFe67e22"},
+         {"number":"50", "Type":"CAR", "Nationality":"FRENCH", "Color":"FF2D34EA"},
+         {"number":"25", "Type":"CAR", "Nationality":"FRENCH", "Color":"FFAAAAAA"},
+    ]    
+    },
+]    
