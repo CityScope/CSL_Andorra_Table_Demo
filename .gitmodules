@@ -1,3 +1,6 @@
 [submodule "CS_Simulation_GAMA"]
 	path = CS_Simulation_GAMA
 	url = https://github.com/CityScope/CS_Simulation_GAMA
+[submodule "CS_CSharpScope_Andorra"]
+	path = CS_CSharpScope_Andorra
+	url = https://github.com/CityScope/CS_CSharpScope_Andorra
