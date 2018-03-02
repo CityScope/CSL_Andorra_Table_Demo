@@ -4,3 +4,6 @@
 [submodule "CS_CSharpScope_Andorra"]
 	path = CS_CSharpScope_Andorra
 	url = https://github.com/CityScope/CS_CSharpScope_Andorra
+[submodule "CS_CityScopeAR"]
+	path = CS_CityScopeAR
+	url = https://github.com/CityScope/CS_CityScopeAR
