@@ -69,7 +69,7 @@ boolean trafficEquilibrium = false;
 boolean btController=false;
 
 /*-------- CityMatrix -------------*/
-public boolean cityIO = true; //Considering that cityIO is running 
+public boolean cityIO = false; //Considering that cityIO is running 
 public boolean showCityMatrix = true; 
 Grid cityMatrix;
 String CityMatrixUrl = "https://cityio.media.mit.edu/api/table/citymatrix";
@@ -81,7 +81,8 @@ JSONObject jsonCityIO = new JSONObject();
 void setup() {
   // Loads Fontss
   loadFonts();
-  fullScreen(P3D, 2);
+ // fullScreen(P3D, 2);
+  size(displayWidth, displayHeight,P3D);
   keyStoner = new Drawer(this);  //<>// //<>//
   buttons = new PhysicalInterface(this);  //<>// //<>//
   streetsAND = new RoadNetwork(roadNetworkName);    //<>// //<>//

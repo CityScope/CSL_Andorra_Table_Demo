@@ -22,39 +22,28 @@ public class Drawer{
       
   CornerPinSurface surfacePinTable;
   CornerPinSurface surfacePinFlatLegend;
-  CornerPinSurface surfacePincityIOQR;
-  CornerPinSurface surfacePincityIOApp;
-  CornerPinSurface surfacePinInterface;
+
   PGraphics offscreen3DTable;
   PGraphics offscreenFlatTable;
-  PGraphics offscreenCityIOQR;
-  PGraphics offscreenCityIOApp;
-  PGraphics offscreenInterface;
+
   
   Drawer(PApplet parent){
     ks = new Keystone(parent); //<>// //<>// //<>// //<>//
-    offscreen3DTable = createGraphics(displayWidth, displayHeight, P2D);  //<>// //<>// //<>// //<>// //<>//
-    offscreenFlatTable = createGraphics(displayWidth, displayHeight, P2D);
-    offscreenCityIOQR = createGraphics(displayWidth, displayHeight, P2D);
-    offscreenCityIOApp = createGraphics(displayWidth, displayHeight, P2D);
-    offscreenInterface = createGraphics(displayWidth, displayHeight, P2D);
+    offscreen3DTable = createGraphics(playGroundWidth, playGroundHeight, P2D);  //<>// //<>// //<>// //<>// //<>//
+    offscreenFlatTable = createGraphics(playGroundWidth, playGroundHeight, P2D);
   }
   
   void initTableView(){
     surfacePinTable = ks.createCornerPinSurface((int)getROIDimension().x, (int)getROIDimension().y, 50);
     surfacePinFlatLegend = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
-    surfacePincityIOQR = ks.createCornerPinSurface(285, 92, 50);
-    surfacePincityIOApp = ks.createCornerPinSurface(100, 30, 50);
-    surfacePinInterface = ks.createCornerPinSurface(500, 500, 50);
-    ks.load();
+
+    //ks.load();
   }
   
   void initScreenView(){
     surfacePinTable = ks.createCornerPinSurface(playGroundWidth, playGroundHeight, 50);
     surfacePinFlatLegend = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
-    surfacePincityIOQR = ks.createCornerPinSurface(285, 92, 50);
-    surfacePincityIOApp = ks.createCornerPinSurface(100, 30, 50);
-    surfacePinInterface = ks.createCornerPinSurface(1000, 750, 50);
+
   }
   
   void drawFaltTableView(){
@@ -66,9 +55,6 @@ public class Drawer{
       drawAgentLegend(offscreenFlatTable, new PVector(1250, 860), 450);
       offscreenFlatTable.endDraw();
       surfacePinFlatLegend.render(offscreenFlatTable);
-      offscreenInterface.beginDraw();
-      offscreenInterface.endDraw();
-      surfacePinInterface.render(offscreenInterface);
     }
   }
   
