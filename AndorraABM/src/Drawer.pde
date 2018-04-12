@@ -20,8 +20,8 @@ public class Drawer{
 
   Keystone ks;  
       
-  CornerPinSurface surfacePinTable;
-  CornerPinSurface surfacePinFlatLegend;
+  CornerPinSurface surfacePin3DTable;
+  CornerPinSurface surfacePinFlatTable;
 
   PGraphics offscreen3DTable;
   PGraphics offscreenFlatTable;
@@ -34,15 +34,15 @@ public class Drawer{
   }
   
   void initTableView(){
-    surfacePinTable = ks.createCornerPinSurface((int)getROIDimension().x, (int)getROIDimension().y, 50);
-    surfacePinFlatLegend = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
+    surfacePin3DTable = ks.createCornerPinSurface((int)getROIDimension().x, (int)getROIDimension().y, 50);    
+    surfacePinFlatTable = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
 
     //ks.load();
   }
   
   void initScreenView(){
-    surfacePinTable = ks.createCornerPinSurface(playGroundWidth, playGroundHeight, 50);
-    surfacePinFlatLegend = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
+    surfacePin3DTable = ks.createCornerPinSurface(playGroundWidth, playGroundHeight, 50);
+    surfacePinFlatTable = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
 
   }
   
@@ -54,7 +54,7 @@ public class Drawer{
       drawTemporalLegend(offscreenFlatTable, new PVector(1700, 850), 240.0, (5000/slideHandler.curHourDuration)*(millis() - slideHandler.lastTime));
       drawAgentLegend(offscreenFlatTable, new PVector(1250, 860), 450);
       offscreenFlatTable.endDraw();
-      surfacePinFlatLegend.render(offscreenFlatTable);
+      surfacePinFlatTable.render(offscreenFlatTable);
     }
   }
   
@@ -64,84 +64,84 @@ public class Drawer{
   offscreen3DTable.clear();
   offscreen3DTable.background(0);
 
-  if (tableView) {
-    //FIXME: A.G What is this ugly constant!!!! It should come from somewhere
-    offscreen3DTable.translate(-132, -535);    
-    offscreen3DTable.translate(getROICenter().x, getROICenter().y);
-    offscreen3DTable.rotate(0.445 + 3.14);
-    offscreen3DTable.translate(-getROICenter().x, -getROICenter().y);
-    drawTableBackGround(offscreen3DTable);
-  }
+    if (tableView) {
+      //FIXME: A.G What is this ugly constant!!!! It should come from somewhere
+      offscreen3DTable.translate(-132*width/2000, -535*height/1000);    
+      offscreen3DTable.translate(getROICenter().x, getROICenter().y);
+      offscreen3DTable.rotate(0.445 + 3.14);
+      offscreen3DTable.translate(-getROICenter().x, -getROICenter().y);
+      drawTableBackGround(offscreen3DTable);
+    }
+    
+    if (showCityMatrix && cityIO) {
+      if (frameCount % 60 == 0) {
+          jsonCityIO = loadJSONObject(CityMatrixUrl);
+        isGridHasChanged = true;
+      } 
+      cityMatrix.drawGrid(offscreen3DTable);
+    }
   
-  if (showCityMatrix && cityIO) {
-    if (frameCount % 60 == 0) {
-        jsonCityIO = loadJSONObject(CityMatrixUrl);
-      isGridHasChanged = true;
-    } 
-    cityMatrix.drawGrid(offscreen3DTable);
-  }
-
-  instantHeatmap.draw(offscreen3DTable);
-  aggregatedHeatmap.draw(offscreen3DTable);
-  rncHeatmap.draw(offscreen3DTable);
-  streetsAND.draw(offscreen3DTable);
-  model.run(offscreen3DTable);
-  
-  if (streetsAND.showTower) {
-    updateTowerPop();
-    for (Tower t : towers) {
-      if (t.screenLoc.x > 0 && t.screenLoc.x < width && t.screenLoc.y > 0 && t.screenLoc.y < height) {
-        t.draw(offscreen3DTable);
+    instantHeatmap.draw(offscreen3DTable);
+    aggregatedHeatmap.draw(offscreen3DTable);
+    rncHeatmap.draw(offscreen3DTable);
+    streetsAND.draw(offscreen3DTable);
+    model.run(offscreen3DTable);
+    
+    if (streetsAND.showTower) {
+      updateTowerPop();
+      for (Tower t : towers) {
+        if (t.screenLoc.x > 0 && t.screenLoc.x < width && t.screenLoc.y > 0 && t.screenLoc.y < height) {
+          t.draw(offscreen3DTable);
+        }
       }
     }
-  }
-  
-  if (agentsSelected != null) {
-    offscreen3DTable.textSize(9);
-    for (int i=0; i<agentsSelected.size(); i++) {
-      Agent agent = agentsSelected.get(i);
-      String text = agent.getType() + " " + agent.getId() + ". Traveled " + round( agent.hasTraveled() * streetsAND.getScale() ) + "m" + "s:" + agent.inNode.pos + "d:" + agent.destNode.pos;
-      if (agent.waiting) text += " [WAITING]";
-      if (agent.arrived) text += " [ARRIVED]";
-      int posY = 130 + 15*i;
-      offscreen3DTable.textAlign(LEFT, CENTER); 
-      offscreen3DTable.fill(#FFFFFF);
-      offscreen3DTable.text(text, 40, posY);
-      offscreen3DTable.fill(agent.myColor); 
-      offscreen3DTable.noStroke();
-      offscreen3DTable.ellipse( 30, posY + 2, 4, 4);
+    
+    if (agentsSelected != null) {
+      offscreen3DTable.textSize(9);
+      for (int i=0; i<agentsSelected.size(); i++) {
+        Agent agent = agentsSelected.get(i);
+        String text = agent.getType() + " " + agent.getId() + ". Traveled " + round( agent.hasTraveled() * streetsAND.getScale() ) + "m" + "s:" + agent.inNode.pos + "d:" + agent.destNode.pos;
+        if (agent.waiting) text += " [WAITING]";
+        if (agent.arrived) text += " [ARRIVED]";
+        int posY = 130 + 15*i;
+        offscreen3DTable.textAlign(LEFT, CENTER); 
+        offscreen3DTable.fill(#FFFFFF);
+        offscreen3DTable.text(text, 40, posY);
+        offscreen3DTable.fill(agent.myColor); 
+        offscreen3DTable.noStroke();
+        offscreen3DTable.ellipse( 30, posY + 2, 4, 4);
+      }
     }
-  }
+    
+    if (frameCount % 30 == 0) {
+      aggregatedHeatmap.update("Aggregated", model.getAgents(), "cold", false);
   
-  if (frameCount % 30 == 0) {
-    aggregatedHeatmap.update("Aggregated", model.getAgents(), "cold", false);
-
-  }
-  
-  if (frameCount % 10 == 0) {
-    rncHeatmap.updateRNC("RNC", rnc.positions, baseRnc.positions,"hot", "cold");
-  }
-  if(printLegend == true){
-    drawLegend(offscreen3DTable);
-    model.printLegend(offscreen3DTable, 40, 70);
-  }
-  
-  
-  if(streetsAND.showRNC||rncHeatmap.visible==true){
-    rnc.update();
-    baseRnc.update();
-}
-  if(streetsAND.showRNC){
-    rnc.draw(offscreen3DTable);
-  }
-  
-  // draw the links showing the equilbrium traffic conditions
-  if (trafficEquilibrium==true) {
-    equilibrium.draw(offscreen3DTable);
-  }
+    }
+    
+    if (frameCount % 10 == 0) {
+      rncHeatmap.updateRNC("RNC", rnc.positions, baseRnc.positions,"hot", "cold");
+    }
+    if(printLegend == true){
+      drawLegend(offscreen3DTable);
+      model.printLegend(offscreen3DTable, 40, 70);
+    }
+    
+    
+    if(streetsAND.showRNC||rncHeatmap.visible==true){
+      rnc.update();
+      baseRnc.update();
+    }
+    if(streetsAND.showRNC){
+      rnc.draw(offscreen3DTable);
+    }
+    
+    // draw the links showing the equilbrium traffic conditions
+    if (trafficEquilibrium==true) {
+      equilibrium.draw(offscreen3DTable);
+    }
    
   offscreen3DTable.endDraw();
-  surfacePinTable.render(offscreen3DTable);
+  surfacePin3DTable.render(offscreen3DTable);
   }
   
   void drawLegend(PGraphics p) {
@@ -227,6 +227,7 @@ public class Drawer{
   }
   
   void drawTableBackGround(PGraphics p) {
+    
     p.beginShape();
     p.texture(backgroundImage);
     p.vertex(UpperLeft.x, UpperLeft.y, 0, 0);
@@ -234,12 +235,18 @@ public class Drawer{
     p.vertex(LowerRight.x, LowerRight.y, 2000, 711);
     p.vertex(LowerLeft.x, LowerLeft.y, 0, 711);
     p.endShape(); 
+    p.ellipse(UpperLeft.x,UpperLeft.y,20,20);
+    p.ellipse(UpperRight.x,UpperRight.y,20,20);
+    p.ellipse(LowerLeft.x,LowerLeft.y,20,20);
+    p.ellipse(LowerRight.x,LowerRight.y,20,20);
+    //p.rect(UpperLeft.x,UpperLeft.y,UpperRight.x-UpperLeft.x,711);
     if (streetsAND.hideBackground) {
       p.fill(0, 200);
     } else {
       p.fill(0, 125);
     }
     p.rect(0, 0, 10000, 7110);
+    
   }
 
   void drawTemporalLegend(PGraphics p, PVector pos, float size, float simulationTime) {

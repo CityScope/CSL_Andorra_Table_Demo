@@ -521,9 +521,9 @@ public class Agent implements Placeable {
   // SELECT AGENT IF UNDER MOUSE CLICK --->
   public boolean select(int x, int y) {
     if(tableView){
-      //PVector surfaceMouse = surfacePinTable.getTransformedCursor(mouseX, mouseY);
-      PVector surfaceMouse= keyStoner.surfacePinTable.getTransformedMouse();
-      PVector surfacePos = keyStoner.surfacePinTable.getTransformedCursor((int)posDraw.x, (int)posDraw.y);
+      //PVector surfaceMouse = surfacePin3DTable.getTransformedCursor(mouseX, mouseY);
+      PVector surfaceMouse= keyStoner.surfacePin3DTable.getTransformedMouse();
+      PVector surfacePos = keyStoner.surfacePin3DTable.getTransformedCursor((int)posDraw.x, (int)posDraw.y);
      /* println(" mouseX: " + mouseX + " mouseY: " + mouseY + " posDraw.x: " + posDraw.x + " posDraw.y: " + posDraw.y);
       println( " surfaceMouse.x: " + surfaceMouse.x + " surfaceMouse.y: " + surfaceMouse.y + " surfacePos.x: " + surfacePos.x + " surfacePos.y: " + surfacePos.y);
       println( "x: " + x + "y: " + y );

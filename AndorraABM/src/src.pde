@@ -81,8 +81,8 @@ JSONObject jsonCityIO = new JSONObject();
 void setup() {
   // Loads Fontss
   loadFonts();
- // fullScreen(P3D, 2);
-  size(displayWidth, displayHeight,P3D);
+  fullScreen(P3D, 2);
+  //size(displayWidth, displayHeight,P3D);
   keyStoner = new Drawer(this);  //<>// //<>//
   buttons = new PhysicalInterface(this);  //<>// //<>//
   streetsAND = new RoadNetwork(roadNetworkName);    //<>// //<>//
@@ -183,7 +183,7 @@ void drawScene() {
 /* INTERACTION ------------------------------------------------------ */
 void mouseReleased() {
   if (tableView==true){
-    PVector mousePos = keyStoner.surfacePinTable.getTransformedMouse();
+    PVector mousePos = keyStoner.surfacePin3DTable.getTransformedMouse();
     agentsSelected = model.select(int(mousePos.x),int(mousePos.y));  // Select agents under mouse
   }else{
     agentsSelected = model.select(mouseX,mouseY); 
