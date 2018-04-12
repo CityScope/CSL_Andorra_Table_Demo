@@ -1,4 +1,4 @@
- /* //<>//
+/* //<>// //<>// //<>// //<>//
  * This file is part of the CityScope Organization (https://github.com/CityScope).
  * Copyright (c) 2018 Arnaud Grignard.
  * 
@@ -67,6 +67,7 @@ int numLinks, numPeriods;
 boolean regulatePop= false;
 boolean trafficEquilibrium = false;
 boolean btController=false;
+boolean multiProj=true;
 
 /*-------- CityMatrix -------------*/
 public boolean cityIO = false; //Considering that cityIO is running 
@@ -81,12 +82,17 @@ JSONObject jsonCityIO = new JSONObject();
 void setup() {
   // Loads Fontss
   loadFonts();
-  fullScreen(P3D, 2);
-  //size(displayWidth, displayHeight,P3D);
-  keyStoner = new Drawer(this);  //<>// //<>//
-  buttons = new PhysicalInterface(this);  //<>// //<>//
-  streetsAND = new RoadNetwork(roadNetworkName);    //<>// //<>//
+  fullScreen(P3D, SPAN);
+  //size(displayWidth, displayHeight, P3D);
+  //<>//
+  buttons = new PhysicalInterface(this);  //<>//
+  streetsAND = new RoadNetwork(roadNetworkName);    //<>//
   model = new ABM(streetsAND);
+  UpperLeft = streetsAND.toXY(42.505086, 1.509961);
+  UpperRight = streetsAND.toXY(42.517066, 1.544024);
+  LowerRight = streetsAND.toXY(42.508161, 1.549798);
+  LowerLeft = streetsAND.toXY(42.496164, 1.515728);
+  keyStoner = new Drawer(this);
   instantHeatmap = new Heatmap(0, 0, width, height);
   instantHeatmap.setBrush("ressources/HeatMap/heatmapBrush.png", 80);
   instantHeatmap.addGradient("cold", "ressources/HeatMap/cold_transp.png");
@@ -100,10 +106,7 @@ void setup() {
   rncHeatmap.addGradient("cold", "ressources/HeatMap/cold_transp.png");
   backgroundImage = loadImage("data/GIS/Background/earth_blurred.jpg");
   bgImage = loadImage("data/GIS/Background/AndorraBG_HR.jpg");
-  UpperLeft = streetsAND.toXY(42.505086, 1.509961);
-  UpperRight = streetsAND.toXY(42.517066, 1.544024);
-  LowerRight = streetsAND.toXY(42.508161, 1.549798);
-  LowerLeft = streetsAND.toXY(42.496164, 1.515728);
+
   if (tableView) {
     keyStoner.initTableView();
   } else {
@@ -112,12 +115,12 @@ void setup() {
   slideHandler = new SlideHandler("ressources/Slides/slides.json");
   aggregatedData = new AggregatedData();
   cityMatrix = new Grid(new PVector(1300, 700), 16, 16, blockSize);
-  if(cityIO){
-    try{
+  if (cityIO) {
+    try {
       loadJSONObject(CityMatrixUrl);
       jsonCityIO = loadJSONObject(CityMatrixUrl);
     }
-    catch(Exception e){
+    catch(Exception e) {
       println("The connexion to " + CityMatrixUrl + " failed");
       cityIO = false; //if cityIO crashed at least the simulation can starts withotu linking to cityMatrix
     }
@@ -130,46 +133,46 @@ void setup() {
 
 /* RUN ------------------------------------------------------------- */
 void draw() {
-  
+
   if (slideHandler.videoMode == true) {
     slideHandler.update(false);
   }
   //initSimulation is set to false by the SlideHandler slideHandler.NextSlide()
   if (slideHandler.initSimulation == false) {
-      //POI
-      streetsAND = new RoadNetwork(roadNetworkName);
-      //AGENT
-      model = new ABM(streetsAND); 
-      slideHandler.cdr = slideHandler.getCDRFilesFromId(slideHandler.curSlide); 
-      jsonExternalCity = loadJSONObject(slideHandler.cdr.getString("cities"));
-      jsonCenterAggregated = loadJSONObject(slideHandler.cdr.getString("center"));
-      //CDR Tower
-      InitTowerFromJSON(jsonCenterAggregated);
-      createTowerGraph();
-      //External Cities
-      initExternalCities();
-      //POI
-      streetsAND.InitPOIFromJSon(slideHandler.curSlide);
-      AssignPOIToTower();
-      //CDR
-      model.InitModel(slideHandler.curSlide); 
-      aggregatedData.Init("Centre");
-      slideHandler.initSimulation = true;
-      slideHandler.display = slideHandler.getDisplaySettingsFromId(slideHandler.curSlide); 
-      streetsAND.showStreetRendering = slideHandler.display.getBoolean("road");
-      streetsAND.showPOIs = slideHandler.display.getBoolean("poi");
-      //RNC 
-      slideHandler.rnc = slideHandler.getRNCFilesFromId(slideHandler.curSlide); 
-      jsonRNC = loadJSONObject(slideHandler.rnc.getString("file"));
-      rnc = new RNC(jsonRNC);
-      baseRnc=new RNC(jsonBaseRNC);      
-      //traffic Equilibrium
-      slideHandler.trafficNetwork = slideHandler.getTrafficNetworkFilesFromId(slideHandler.curSlide);
-      links = loadJSONObject(slideHandler.trafficNetwork.getString("file"));
-      equilibrium=new Equilibrium(links,hierarchy);     
-    }
-    drawScene();
-    buttons.update();  
+    //POI
+    streetsAND = new RoadNetwork(roadNetworkName);
+    //AGENT
+    model = new ABM(streetsAND); 
+    slideHandler.cdr = slideHandler.getCDRFilesFromId(slideHandler.curSlide); 
+    jsonExternalCity = loadJSONObject(slideHandler.cdr.getString("cities"));
+    jsonCenterAggregated = loadJSONObject(slideHandler.cdr.getString("center"));
+    //CDR Tower
+    InitTowerFromJSON(jsonCenterAggregated);
+    createTowerGraph();
+    //External Cities
+    initExternalCities();
+    //POI
+    streetsAND.InitPOIFromJSon(slideHandler.curSlide);
+    AssignPOIToTower();
+    //CDR
+    model.InitModel(slideHandler.curSlide); 
+    aggregatedData.Init("Centre");
+    slideHandler.initSimulation = true;
+    slideHandler.display = slideHandler.getDisplaySettingsFromId(slideHandler.curSlide); 
+    streetsAND.showStreetRendering = slideHandler.display.getBoolean("road");
+    streetsAND.showPOIs = slideHandler.display.getBoolean("poi");
+    //RNC 
+    slideHandler.rnc = slideHandler.getRNCFilesFromId(slideHandler.curSlide); 
+    jsonRNC = loadJSONObject(slideHandler.rnc.getString("file"));
+    rnc = new RNC(jsonRNC);
+    baseRnc=new RNC(jsonBaseRNC);      
+    //traffic Equilibrium
+    slideHandler.trafficNetwork = slideHandler.getTrafficNetworkFilesFromId(slideHandler.curSlide);
+    links = loadJSONObject(slideHandler.trafficNetwork.getString("file"));
+    equilibrium=new Equilibrium(links, hierarchy);
+  }
+  drawScene();
+  buttons.update();
 }
 
 
@@ -182,13 +185,12 @@ void drawScene() {
 
 /* INTERACTION ------------------------------------------------------ */
 void mouseReleased() {
-  if (tableView==true){
-    PVector mousePos = keyStoner.surfacePin3DTable.getTransformedMouse();
-    agentsSelected = model.select(int(mousePos.x),int(mousePos.y));  // Select agents under mouse
-  }else{
-    agentsSelected = model.select(mouseX,mouseY); 
+  if (tableView==true) {
+    //PVector mousePos = keyStoner.surfacePin3DTable.getTransformedMouse();
+    //agentsSelected = model.select(int(mousePos.x),int(mousePos.y));  // Select agents under mouse
+  } else {
+    agentsSelected = model.select(mouseX, mouseY);
   }
-  
 }
 
 void keyPressed() {
@@ -205,9 +207,9 @@ void keyPressed() {
     break;
   case ' ':  // pause simulation
     simulationPaused = !simulationPaused;
-    if(simulationPaused == true){
+    if (simulationPaused == true) {
       noLoop();
-    }else{
+    } else {
       loop();
     }
     break;
@@ -243,9 +245,9 @@ void keyPressed() {
   case 'h': // Toggle aggregated Heatmap
     aggregatedHeatmap.visible(Visibility.TOGGLE);
     break;    
-  /*case 'q': // Toggle rnc Heatmap
-  rncHeatmap.visible(Visibility.TOGGLE);
-    break;*/
+    /*case 'q': // Toggle rnc Heatmap
+     rncHeatmap.visible(Visibility.TOGGLE);
+     break;*/
   case 'p':  // Toggle POIs view
     streetsAND.togglePOIs();
     break;
@@ -276,8 +278,8 @@ void keyPressed() {
     regulatePop=!regulatePop ;
     break;
   case 'e':
-     trafficEquilibrium=!trafficEquilibrium;
-     break;
+    trafficEquilibrium=!trafficEquilibrium;
+    break;
   case 'y':
     streetsAND.toggleRNC();
     break;

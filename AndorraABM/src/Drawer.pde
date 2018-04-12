@@ -22,28 +22,48 @@ public class Drawer{
       
   CornerPinSurface surfacePin3DTable;
   CornerPinSurface surfacePinFlatTable;
+  CornerPinSurface[] surface = new CornerPinSurface[2];
+  CornerPinSurface[] surface3D = new CornerPinSurface[2];
 
   PGraphics offscreen3DTable;
   PGraphics offscreenFlatTable;
+  PGraphics miniFlat;
+  PGraphics miniTable;
 
   
   Drawer(PApplet parent){
     ks = new Keystone(parent); //<>// //<>// //<>// //<>//
-    offscreen3DTable = createGraphics(playGroundWidth, playGroundHeight, P2D);  //<>// //<>// //<>// //<>// //<>//
+    offscreen3DTable = createGraphics((int)getROIDimension().x, (int)getROIDimension().y, P2D);   //<>//
     offscreenFlatTable = createGraphics(playGroundWidth, playGroundHeight, P2D);
+
   }
   
   void initTableView(){
-    surfacePin3DTable = ks.createCornerPinSurface((int)getROIDimension().x, (int)getROIDimension().y, 50);    
-    surfacePinFlatTable = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
+    if(multiProj){
+      surface3D[0] = ks.createCornerPinSurface((int)getROIDimension().x/2, (int)getROIDimension().y, 50);
+      surface3D[1] = ks.createCornerPinSurface((int)getROIDimension().x/2, (int)getROIDimension().y, 50);
+      
+      surface[0] = ks.createCornerPinSurface((int)playGroundWidth/2, (int)playGroundHeight, 50);
+      surface[1] = ks.createCornerPinSurface((int)playGroundWidth/2, (int)playGroundHeight, 50);
+      //FIXME: Thos load can only be done if the keystoen was made with the right number of projectors
+      //ks.load();
+    }else{
+      surfacePin3DTable = ks.createCornerPinSurface((int)getROIDimension().x, (int)getROIDimension().y, 50);    
+      surfacePinFlatTable = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
+      println("UpperLeft" + UpperLeft + "UpperRight" + UpperRight + "LowerLeft" + LowerLeft + "LowerRight" + LowerRight);
+      println("getROICenter()" + getROICenter());
+      println("getROIDimension()" + getROIDimension());
+      //FIXME: Thos load can only be done if the keystoen was made with the right number of projectors
+      //ks.load();
+    }
+    miniFlat = createGraphics(playGroundWidth/2, playGroundHeight, P2D);
+    miniTable = createGraphics((int)getROIDimension().x/2, (int)getROIDimension().y, P2D);
 
-    //ks.load();
   }
   
   void initScreenView(){
     surfacePin3DTable = ks.createCornerPinSurface(playGroundWidth, playGroundHeight, 50);
     surfacePinFlatTable = ks.createCornerPinSurface((int)playGroundWidth, (int)playGroundHeight, 50);
-
   }
   
   void drawFaltTableView(){
@@ -54,7 +74,21 @@ public class Drawer{
       drawTemporalLegend(offscreenFlatTable, new PVector(1700, 850), 240.0, (5000/slideHandler.curHourDuration)*(millis() - slideHandler.lastTime));
       drawAgentLegend(offscreenFlatTable, new PVector(1250, 860), 450);
       offscreenFlatTable.endDraw();
-      surfacePinFlatTable.render(offscreenFlatTable);
+      if(multiProj){
+        miniFlat.beginDraw();
+        miniFlat.clear();
+        miniFlat.image(offscreenFlatTable, 0, 0);
+        miniFlat.endDraw();
+        surface[0].render(miniFlat);
+        miniFlat.beginDraw();
+        miniFlat.clear();
+        miniFlat.image(offscreenFlatTable, -playGroundWidth/2, 0);
+        miniFlat.endDraw();
+        surface[1].render(miniFlat);
+      }else{
+        surfacePinFlatTable.render(offscreenFlatTable);
+      }
+      
     }
   }
   
@@ -66,7 +100,8 @@ public class Drawer{
 
     if (tableView) {
       //FIXME: A.G What is this ugly constant!!!! It should come from somewhere
-      offscreen3DTable.translate(-132*width/2000, -535*height/1000);    
+     // offscreen3DTable.translate(-132*width/2000, -535*height/1000); 
+      offscreen3DTable.translate(-getROICenter().x*0.135, -getROICenter().y*0.6);
       offscreen3DTable.translate(getROICenter().x, getROICenter().y);
       offscreen3DTable.rotate(0.445 + 3.14);
       offscreen3DTable.translate(-getROICenter().x, -getROICenter().y);
@@ -141,7 +176,24 @@ public class Drawer{
     }
    
   offscreen3DTable.endDraw();
-  surfacePin3DTable.render(offscreen3DTable);
+  
+   if(multiProj){
+        miniTable.beginDraw();
+        miniTable.clear();
+        miniTable.image(offscreen3DTable, 0, 0);
+        miniTable.endDraw();
+        surface3D[0].render(miniTable);
+        miniTable.beginDraw();
+        miniTable.clear();
+        miniTable.image(offscreen3DTable, -getROIDimension().x/2, 0);
+        miniTable.endDraw();
+        surface3D[1].render(miniTable);
+      }else{
+        surfacePin3DTable.render(offscreen3DTable);
+      }
+  
+  
+  
   }
   
   void drawLegend(PGraphics p) {
