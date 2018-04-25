@@ -28,6 +28,7 @@ RoadNetwork streetsAND;
 String roadNetworkName = "GIS/RoadNetwork/ANDroads.geojson";
 ABM model;
 RNC rnc, baseRnc;
+RNC_Cluster rncCluster;
 Equilibrium equilibrium;
 
 ArrayList<Agent> agentsSelected;
@@ -40,7 +41,7 @@ ArrayList<Highway> highways;
 
 JSONObject jsonExternalCity;
 JSONObject jsonCenterAggregated;
-JSONObject jsonRNC;
+JSONObject jsonRNC, jsonRNCCluster;
 JSONObject jsonBaseRNC;
 JSONObject links;
 JSONObject hierarchy;
@@ -67,7 +68,7 @@ int numLinks, numPeriods;
 boolean regulatePop= false;
 boolean trafficEquilibrium = false;
 boolean btController=false;
-boolean multiProj=true;
+boolean multiProj=false;
 
 /*-------- CityMatrix -------------*/
 public boolean cityIO = false; //Considering that cityIO is running 
@@ -163,8 +164,11 @@ void draw() {
     streetsAND.showPOIs = slideHandler.display.getBoolean("poi");
     //RNC 
     slideHandler.rnc = slideHandler.getRNCFilesFromId(slideHandler.curSlide); 
+    slideHandler.rncCluster = slideHandler.getRNCClusterFilesFromId(slideHandler.curSlide);
     jsonRNC = loadJSONObject(slideHandler.rnc.getString("file"));
+    jsonRNCCluster = loadJSONObject(slideHandler.rncCluster.getString("file"));
     rnc = new RNC(jsonRNC);
+    rncCluster = new RNC_Cluster(jsonRNCCluster);
     baseRnc=new RNC(jsonBaseRNC);      
     //traffic Equilibrium
     slideHandler.trafficNetwork = slideHandler.getTrafficNetworkFilesFromId(slideHandler.curSlide);
@@ -282,9 +286,11 @@ void keyPressed() {
     break;
   case 'y':
     streetsAND.toggleRNC();
+    if (streetsAND.showRNCCluster) streetsAND.toggleRNCCluster();
     break;
   case 'u':
     streetsAND.toggleRNCCluster();
+    if (streetsAND.showRNC) streetsAND.toggleRNC();
     break;
   case 'f':
     model.selectRandomAgent();

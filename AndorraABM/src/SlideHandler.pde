@@ -21,6 +21,7 @@ public class SlideHandler {
   JSONObject display; 
   JSONObject cdr;
   JSONObject rnc;
+  JSONObject rncCluster;
   JSONObject trafficNetwork;
   int fadeInTime = 0;
   int curSlide = 0;
@@ -51,6 +52,11 @@ public class SlideHandler {
   JSONObject getRNCFilesFromId(int id) {
     JSONObject slide = values.getJSONObject(id);
     return slide.getJSONObject("RNC");
+  }
+  
+  JSONObject getRNCClusterFilesFromId(int id) {
+    JSONObject slide = values.getJSONObject(id);
+    return slide.getJSONObject("RNCCluster");
   }
   
   JSONObject getTrafficNetworkFilesFromId(int id) {
