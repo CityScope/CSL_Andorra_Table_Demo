@@ -170,12 +170,6 @@ public class Drawer{
       rnc.draw(offscreen3DTable);
     }
     
-     if(streetsAND.showRNCCluster){
-       
-       rncCluster.update();
-      rncCluster.draw(offscreen3DTable);
-    }
-    
     // draw the links showing the equilbrium traffic conditions
     if (trafficEquilibrium==true) {
       equilibrium.draw(offscreen3DTable);

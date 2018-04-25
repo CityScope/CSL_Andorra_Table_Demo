@@ -23,9 +23,6 @@
      "RNC": {
          "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_10.json",
      },
-     "RNCCluster": {
-         "file": "Mobility/RNC/movingcluster/movingClusterLight_20min_2016-07-03.json",
-     },
      "TrafficNetwork": {
          "file": "Mobility/Equilibrium/linksCong2016_07_10.json",
      },
@@ -62,9 +59,6 @@
      "RNC": {
          "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_11.json",
      },
-     "RNCCluster": {
-         "file": "Mobility/RNC/movingcluster/movingClusterLight_20min_2016-07-10.json",
-     },
      "TrafficNetwork": {
          "file": "Mobility/Equilibrium/linksCong2016_07_11.json",
      },
@@ -100,9 +94,6 @@
      },
      "RNC": {
          "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_12.json",
-     },
-     "RNCCluster": {
-         "file": "Mobility/RNC/movingcluster/movingClusterLight_20min_2016-07-11.json",
      },
      "TrafficNetwork": {
          "file": "Mobility/Equilibrium/linksCong2016_07_12.json",
@@ -141,9 +132,6 @@
      "RNC": {
          "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_03.json",
      },
-     "RNCCluster": {
-         "file": "Mobility/RNC/movingcluster/movingClusterLight_20min_2016-07-12.json",
-     },
      "TrafficNetwork": {
          "file": "Mobility/Equilibrium/linksCong2016_07_03.json",
      },
@@ -178,9 +166,6 @@
      },
      "RNC": {
          "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_16.json",
-     },
-     "RNCCluster": {
-         "file": "Mobility/RNC/movingcluster/movingClusterLight_20min_2016-07-16.json",
      },
      "TrafficNetwork": {
          "file": "Mobility/Equilibrium/linksCong2016_07_16.json",
@@ -217,9 +202,6 @@
      },
      "RNC": {
          "file": "Mobility/RNC/syntheticRnc10MinStaysCEST2016_07_23.json",
-     },
-     "RNCCluster": {
-         "file": "Mobility/RNC/movingcluster/movingClusterLight_20min_2016-07-23.json",
      },
      "TrafficNetwork": {
          "file": "Mobility/Equilibrium/linksCong2016_07_23.json",
