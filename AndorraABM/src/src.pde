@@ -67,7 +67,7 @@ int towerTimerStep=0;
 int numLinks, numPeriods;
 boolean regulatePop= false;
 boolean trafficEquilibrium = false;
-boolean btController=false;
+boolean btController=true;
 boolean multiProj=false;
 
 /*-------- CityMatrix -------------*/
@@ -83,7 +83,7 @@ JSONObject jsonCityIO = new JSONObject();
 void setup() {
   // Loads Fontss
   loadFonts();
-  fullScreen(P3D, SPAN);
+  fullScreen(P3D, 2);
   //size(displayWidth, displayHeight, P3D);
   //<>//
   buttons = new PhysicalInterface(this);  //<>//
