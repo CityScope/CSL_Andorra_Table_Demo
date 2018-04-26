@@ -1,4 +1,4 @@
-/* //<>// //<>// //<>// //<>//
+/* //<>// //<>// //<>// //<>// //<>// //<>// //<>//
  * This file is part of the CityScope Organization (https://github.com/CityScope).
  * Copyright (c) 2018 Arnaud Grignard.
  * 
@@ -71,7 +71,7 @@ boolean btController=true;
 boolean multiProj=false;
 
 /*-------- CityMatrix -------------*/
-public boolean cityIO = false; //Considering that cityIO is running 
+public boolean cityIO = true; //Considering that cityIO is running 
 public boolean showCityMatrix = true; 
 Grid cityMatrix;
 String CityMatrixUrl = "https://cityio.media.mit.edu/api/table/citymatrix";
@@ -85,9 +85,9 @@ void setup() {
   loadFonts();
   fullScreen(P3D, 2);
   //size(displayWidth, displayHeight, P3D);
-  //<>//
-  buttons = new PhysicalInterface(this);  //<>//
-  streetsAND = new RoadNetwork(roadNetworkName);    //<>//
+
+  buttons = new PhysicalInterface(this); 
+  streetsAND = new RoadNetwork(roadNetworkName);   
   model = new ABM(streetsAND);
   UpperLeft = streetsAND.toXY(42.505086, 1.509961);
   UpperRight = streetsAND.toXY(42.517066, 1.544024);

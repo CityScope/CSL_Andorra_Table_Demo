@@ -54,7 +54,7 @@ public class Drawer{
       println("getROICenter()" + getROICenter());
       println("getROIDimension()" + getROIDimension());
       //FIXME: Thos load can only be done if the keystoen was made with the right number of projectors
-      //ks.load();
+      ks.load();
     }
     miniFlat = createGraphics(playGroundWidth/2, playGroundHeight, P2D);
     miniTable = createGraphics((int)getROIDimension().x/2, (int)getROIDimension().y, P2D);
