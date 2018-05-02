@@ -74,7 +74,7 @@ boolean multiProj=false;
 public boolean cityIO = true; //Considering that cityIO is running 
 public boolean showCityMatrix = true; 
 Grid cityMatrix;
-String CityMatrixUrl = "https://cityio.media.mit.edu/api/table/citymatrix";
+String CityMatrixUrl = "https://cityio.media.mit.edu/api/table/citymatrix_volpe";
 int blockSize= 10;
 boolean isGridHasChanged=true;
 JSONObject jsonCityIO = new JSONObject();
