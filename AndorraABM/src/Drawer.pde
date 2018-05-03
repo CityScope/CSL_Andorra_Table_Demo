@@ -32,8 +32,8 @@ public class Drawer{
 
   
   Drawer(PApplet parent){
-    ks = new Keystone(parent); //<>// //<>// //<>// //<>//
-    offscreen3DTable = createGraphics((int)getROIDimension().x, (int)getROIDimension().y, P2D);   //<>//
+    ks = new Keystone(parent); //<>// //<>// //<>// //<>// //<>//
+    offscreen3DTable = createGraphics((int)getROIDimension().x, (int)getROIDimension().y, P2D);   //<>// //<>//
     offscreenFlatTable = createGraphics(playGroundWidth, playGroundHeight, P2D);
 
   }
@@ -293,11 +293,6 @@ public class Drawer{
     p.vertex(LowerRight.x, LowerRight.y, 2000, 711);
     p.vertex(LowerLeft.x, LowerLeft.y, 0, 711);
     p.endShape(); 
-    p.ellipse(UpperLeft.x,UpperLeft.y,20,20);
-    p.ellipse(UpperRight.x,UpperRight.y,20,20);
-    p.ellipse(LowerLeft.x,LowerLeft.y,20,20);
-    p.ellipse(LowerRight.x,LowerRight.y,20,20);
-    //p.rect(UpperLeft.x,UpperLeft.y,UpperRight.x-UpperLeft.x,711);
     if (streetsAND.hideBackground) {
       p.fill(0, 200);
     } else {
