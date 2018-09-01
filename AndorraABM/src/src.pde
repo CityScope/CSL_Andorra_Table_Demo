@@ -71,8 +71,8 @@ boolean btController=true;
 boolean multiProj=false;
 
 /*-------- CityMatrix -------------*/
-public boolean cityIO = true; //Considering that cityIO is running 
-public boolean showCityMatrix = true; 
+public boolean cityIO = false; //Considering that cityIO is running 
+public boolean showCityMatrix = false; 
 Grid cityMatrix;
 String CityMatrixUrl = "https://cityio.media.mit.edu/api/table/citymatrix_volpe";
 int blockSize= 10;
