@@ -36,7 +36,7 @@ class PhysicalInterface{
        myPort = new Serial(parent, Serial.list()[1],9600);
      }else{
        btController= false;
-       println("Physical interface not working - Check your bluetotthe settings");
+       println("Physical interface not working - Check your bluetooth settings");
      }   
     }
   }
