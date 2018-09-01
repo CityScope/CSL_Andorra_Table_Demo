@@ -32,7 +32,12 @@ class PhysicalInterface{
     button.add(0);
     if(btController){
      printArray(Serial.list());
-     myPort = new Serial(parent, Serial.list()[1],9600);
+     if (Serial.list().length > 0 && Serial.list()[1].equals("COM4")){
+       myPort = new Serial(parent, Serial.list()[1],9600);
+     }else{
+       btController= false;
+       println("Physical interface not working - Check your bluetotthe settings");
+     }   
     }
   }
   
