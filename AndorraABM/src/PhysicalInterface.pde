@@ -72,7 +72,7 @@ class PhysicalInterface{
       model.toggleShowAgent();
     }
     //Congestion
-    if(button == 4) {
+    if(button == 4) {   
       if(trafficEquilibrium == true) trafficEquilibrium = false;  
       aggregatedHeatmap.visible(Visibility.TOGGLE);
     }
@@ -80,8 +80,8 @@ class PhysicalInterface{
     if(button == 5) showCityMatrix =!showCityMatrix;
     //next
     if(button == 6) slideHandler.NextSlide();
-    if(button == 7) model.speed(0.3);
-    if(button == 8) model.speed(-0.3);
+    //if(button == 7) model.speed(0.3);
+    //if(button == 8) model.speed(-0.3);
     if(button == 9) model.playStop();
   }
   

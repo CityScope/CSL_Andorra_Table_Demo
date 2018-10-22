@@ -104,6 +104,7 @@ public class SlideHandler {
     simulationTime = 0;
     slideHandler.curHour=slideHandler.firstHour;
     slideHandler.initSimulation = false;
+    aggregatedHeatmap.visible(Visibility.HIDE);
   }
   
   void update(boolean randomChange){
