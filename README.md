@@ -1,4 +1,4 @@
-# CS_Andorra_Table_Demo
+# CSL_Andorra_Table_Demo
 Current Version of the Physical Table running in the MediaLab CityScience group and deployed in Andorra in September 2017.
 See wiki for detailed information. 
 
